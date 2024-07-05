@@ -1,0 +1,339 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/alquileres/inicio:
+    post:
+      summary: ''
+      operationId: postApiV1AlquileresInicio
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Alquiler
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bicicleta_id:
+                  type: integer
+                  description: ''
+                  example: 12
+              required:
+                - bicicleta_id
+      security: []
+  '/api/v1/alquileres/finalizar/{alquiler_id}':
+    put:
+      summary: ''
+      operationId: putApiV1AlquileresFinalizarAlquiler_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Alquiler
+      security: []
+    parameters:
+      -
+        in: path
+        name: alquiler_id
+        description: 'The ID of the alquiler.'
+        example: 3
+        required: true
+        schema:
+          type: integer
+  /api/v1/alquileres:
+    get:
+      summary: ''
+      operationId: getApiV1Alquileres
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Alquiler
+      security: []
+  /api/v1/perfil:
+    get:
+      summary: ''
+      operationId: getApiV1Perfil
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Auth
+      security: []
+    put:
+      summary: ''
+      operationId: putApiV1Perfil
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: quae
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ellie37@example.org
+                current_password:
+                  type: string
+                  description: ''
+                  example: quasi
+                password:
+                  type: string
+                  description: ''
+                  example: aspernatur
+              required:
+                - name
+                - email
+                - current_password
+                - password
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      security: []
+  /api/v1/auth/registro:
+    post:
+      summary: ''
+      operationId: postApiV1AuthRegistro
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: wmgncxyunkdgcukiwzrb
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: theo.kulas@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: omnis
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: ''
+      operationId: postApiV1AuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: vicente.emard@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: dolores
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/bicicletas:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Bicicleta
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Bicicleta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                modelo:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: htfxmyu
+                marca:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: pquuhnmfqreijg
+                precio_por_hora:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 36
+              required:
+                - modelo
+                - marca
+                - precio_por_hora
+      security: []
+  '/api/v1/bicicletas/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Bicicleta
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Bicicleta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                modelo:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ondanuhs
+                marca:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: fsohrnifxfhscrykgppu
+                precio_por_hora:
+                  type: integer
+                  description: 'Must be at least 0.'
+                  example: 84
+              required:
+                - modelo
+                - marca
+                - precio_por_hora
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Bicicleta
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the bicicleta.'
+        example: 4
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Alquiler
+    description: ''
+  -
+    name: Auth
+    description: ''
+  -
+    name: Bicicleta
+    description: ''
